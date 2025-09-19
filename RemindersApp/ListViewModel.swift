@@ -21,8 +21,11 @@ class ListViewModel {
     }
     
     func reminder(at index: Int) -> Reminder {
-        return reminders[index]
-    }
+            guard index >= 0 && index < reminders.count else {
+                fatalError("Index out of bounds")
+            }
+            return reminders[index]
+        }
     
     func addReminder(_ reminder: Reminder) {
         reminders.append(reminder)
